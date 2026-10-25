@@ -1,0 +1,65 @@
+{
+  "SaveName": "",
+  "Date": "",
+  "VersionNumber": "",
+  "GameMode": "",
+  "GameType": "",
+  "GameComplexity": "",
+  "Tags": [],
+  "Gravity": 0.5,
+  "PlayArea": 0.5,
+  "Table": "",
+  "Sky": "",
+  "Note": "",
+  "TabStates": {},
+  "LuaScript": "",
+  "LuaScriptState": "",
+  "XmlUI": "",
+  "ObjectStates": [
+    {
+      "GUID": "e57a75",
+      "Name": "Custom_Token",
+      "Transform": {
+        "posX": 0,
+        "posY": 1.75,
+        "posZ": 0,
+        "rotX": 0,
+        "rotY": 180,
+        "rotZ": 0,
+        "scaleX": 1,
+        "scaleY": 1,
+        "scaleZ": 1
+      },
+      "Nickname": "GHE Extra Stats",
+      "Description": "Adds Shield, Retaliate and Attack (stack to 20) to the Gloomhaven Enhanced figure context menu. Keep this token on the table.",
+      "GMNotes": "",
+      "ColorDiffuse": {
+        "r": 1,
+        "g": 1,
+        "b": 1
+      },
+      "Tags": [],
+      "Locked": false,
+      "Grid": true,
+      "Snap": true,
+      "Autoraise": true,
+      "Sticky": true,
+      "Tooltip": true,
+      "Hands": false,
+      "CustomImage": {
+        "ImageURL": "https://steamusercontent-a.akamaihd.net/ugc/1699533601343908790/D3F0AE388084459C9668C4D7D648B9C87CB3598A/",
+        "ImageSecondaryURL": "",
+        "ImageScalar": 1.0,
+        "WidthScale": 0.0,
+        "CustomToken": {
+          "Thickness": 0.2,
+          "MergeDistancePixels": 15.0,
+          "StandUp": false,
+          "Stackable": false
+        }
+      },
+      "LuaScript": "local ExtraStats = {\n  Shield = \"https://steamusercontent-a.akamaihd.net/ugc/1699533601343908790/D3F0AE388084459C9668C4D7D648B9C87CB3598A/\",\n  Retaliate = \"https://steamusercontent-a.akamaihd.net/ugc/1699533601343909793/FC9B2B03FE39B7693596820A25A2712B733585EB/\",\n  Attack = \"https://steamusercontent-a.akamaihd.net/ugc/1699533601343910452/EBEEF4F2DD1735088BD6C74A0CFA29532D440ED8/\",\n}\n\nfunction onLoad()\n  -- Global must finish loading before its API functions exist.\n  Wait.frames(function()\n    for name, image in pairs(ExtraStats) do\n      Global.call(\"api_condition_registerCondition\", { name, { image = image, max = 20 } })\n    end\n  end, 30)\nend\n",
+      "LuaScriptState": ""
+    }
+  ]
+}
